@@ -1,16 +1,62 @@
-# React + Vite
+A responsive admin dashboard built with React, Ant Design, and Chart.js.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech Stack
 
-Currently, two official plugins are available:
+- **React 19** — UI framework
+- **Vite** — build tool and dev server
+- **Ant Design 6** — component library (layout, table, badge, statistic, etc.)
+- **React Router DOM** — client-side routing
+- **Chart.js + react-chartjs-2** — bar chart for revenue visualization
+- **DummyJSON API** — mock data source for orders, inventory, and customers
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Header with logo, title, mail and bell notification icons
+- Sidebar navigation menu with icons
+- Dashboard overview with live stats (orders, inventory, customers, revenue)
+- Recent orders table fetched from API
+- Revenue bar chart by user
+- Orders page with paginated table and calculated totals
+- Inventory page with product thumbnails, ratings, and stock info
+- Customers page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+├── API/              # Fetch functions (getOrders, getInventory, getCustomers)
+├── Components/
+│   ├── AppHeader/    # Top navigation bar
+│   ├── AppFooter/    # Footer
+│   ├── SideMenu/     # Left sidebar with route links
+│   ├── PageContent/  # Main content area (wraps routes)
+│   └── AppRoutes/    # Route definitions
+└── Pages/
+    ├── Dashboard/    # Stats cards, recent orders table, revenue chart
+    ├── Orders/       # Full orders table
+    ├── Inventory/    # Product inventory table
+    └── Customers/    # Customer list
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Data Source
+
+All data is fetched from [DummyJSON](https://dummyjson.com):
+
+| Page | Endpoint |
+|------|----------|
+| Orders | `GET /carts` |
+| Inventory | `GET /products` |
+| Customers | `GET /users` |
